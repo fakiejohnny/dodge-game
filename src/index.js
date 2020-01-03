@@ -1,6 +1,7 @@
 import {Position, Size} from './utils';
 import {canvas, ctx} from './base';
 import './reset';
+import Lobby from './lobby'
 
 function resizeCanvas() {
 	canvas.width = window.innerWidth;
@@ -9,7 +10,7 @@ function resizeCanvas() {
 
 class Game {
     constructor() {
-        console.log('game test');
+        this.lobby = new Lobby();
     }
 }
 
