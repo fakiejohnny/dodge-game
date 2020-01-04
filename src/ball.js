@@ -1,5 +1,6 @@
 import {Position, Size, calculateDistance, calculateAngel} from './utils';
-import {canvas, ctx, playground} from './base';
+import {canvas, ctx} from './base';
+import playground from './playground';
 
 export default class Ball {
     constructor(mouse) {

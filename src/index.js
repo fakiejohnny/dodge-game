@@ -1,7 +1,8 @@
 import {Position, Size} from './utils';
-import {canvas, ctx, playground} from './base';
+import {canvas, ctx} from './base';
 import './reset';
 import Lobby from './lobby'
+import playground from './playground';
 
 class Game {
     constructor() {
