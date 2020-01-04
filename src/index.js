@@ -3,6 +3,7 @@ import {canvas, ctx} from './base';
 import './reset';
 import Lobby from './lobby'
 import playground from './playground';
+import Obstacle from './obstacle';
 
 class Game {
     constructor() {
@@ -25,8 +26,15 @@ class Render {
             element.ball.draw();
         });
 
+        this.lobby.obstacles.forEach(element => {
+            element.move();
+            element.draw();
+        });
+
         requestAnimationFrame(() => {
             this.loop();
+            //let a = new Obstacle();
+            //console.log(a.movementDirection);
         });
     }
 }

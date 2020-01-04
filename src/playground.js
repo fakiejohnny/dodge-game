@@ -12,10 +12,13 @@ class Playground {
     resize() {
         this.size.width = window.innerWidth;
         this.size.height = window.innerHeight;
-        let scale = window.devicePixelRatio;
+        /* let scale = window.devicePixelRatio;
         canvas.width = this.size.width * scale;
         canvas.height = this.size.height * scale;
-        ctx.scale(scale, scale);
+        ctx.scale(scale, scale); */
+
+        canvas.width = this.size.width;
+        canvas.height = this.size.height;
     }
 }
 const playground = new Playground();
