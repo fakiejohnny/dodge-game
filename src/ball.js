@@ -25,6 +25,7 @@ export default class Ball {
 
         this.position.x += this.currentSpeed * Math.cos(this.angle);
 		this.position.y += this.currentSpeed * Math.sin(this.angle);
+		this.collisionEdge();
     }
     collisionEdge() {
 		if (this.position.x + this.radius >= playground.size.width) {
