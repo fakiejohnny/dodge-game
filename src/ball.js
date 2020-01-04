@@ -1,5 +1,5 @@
 import {Position, Size, calculateDistance, calculateAngel} from './utils';
-import {canvas, ctx} from './base';
+import {canvas, ctx, playground} from './base';
 
 export default class Ball {
     constructor(mouse) {
@@ -25,6 +25,21 @@ export default class Ball {
         this.position.x += this.currentSpeed * Math.cos(this.angle);
 		this.position.y += this.currentSpeed * Math.sin(this.angle);
     }
+    collisionEdge() {
+		if (this.position.x + this.radius >= playground.size.width) {
+			this.position.x = playground.size.width - this.radius;
+		}
+		if (this.position.x - this.radius <= 0) {
+			this.position.x = 0 + this.radius;
+		}
+		if (this.position.y + this.radius >= playground.size.height) {
+			this.position.y = playground.size.height - this.radius;
+		}
+		if (this.position.y - this.radius <= 0) {
+			this.position.y = 0 + this.radius;
+		}
+	}
+
     draw() {
 		ctx.beginPath();
 		ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2);

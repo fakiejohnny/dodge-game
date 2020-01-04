@@ -1,12 +1,7 @@
 import {Position, Size} from './utils';
-import {canvas, ctx} from './base';
+import {canvas, ctx, playground} from './base';
 import './reset';
 import Lobby from './lobby'
-
-function resizeCanvas() {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-}
 
 class Game {
     constructor() {
@@ -22,7 +17,7 @@ class Render {
         this.lobby = lobby;
     }
     loop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, playground.size.width, playground.size.height);
 
         this.lobby.players.forEach(element => {
             element.ball.move();
@@ -36,6 +31,3 @@ class Render {
 }
 
 new Game();
-
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas, false);
