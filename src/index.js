@@ -21,20 +21,10 @@ class Render {
     loop() {
         ctx.clearRect(0, 0, playground.size.width, playground.size.height);
 
-        this.lobby.players.forEach(element => {
-            element.ball.move();
-            element.ball.draw();
-        });
-
-        this.lobby.obstacles.forEach(element => {
-            element.move();
-            element.draw();
-        });
+        this.lobby.loop();
 
         requestAnimationFrame(() => {
             this.loop();
-            //let a = new Obstacle();
-            //console.log(a.movementDirection);
         });
     }
 }

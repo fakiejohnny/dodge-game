@@ -8,8 +8,17 @@ export default class Obstacle {
         this.size = this.setSize();
         this.movementDirection = this.setMovementDirection(this.position);
         this.velocity = getRandomArbitrary(1,4);
-		this.color = 'rgb(51,51,51)';
+        this.color = 'rgb(51,51,51)';
+        this.ticks = 0;
+        this.canDie = false;
+        this.deathTime = 6000/this.velocity;
     }
+    countDeath() {
+		this.ticks += 1;
+		if (this.ticks > this.deathTime) {
+			this.canDie = true;
+		}
+	}
     generateSpawnPosition() {
         let number = getRandomInt(0, playground.size.width*2+playground.size.height*2);
         let pos = new Position(0, 0);
@@ -51,7 +60,8 @@ export default class Obstacle {
     }
     move() {
 		this.position.x += this.velocity * Math.cos(this.movementDirection);
-		this.position.y += this.velocity * Math.sin(this.movementDirection);
+        this.position.y += this.velocity * Math.sin(this.movementDirection);
+        this.countDeath();
 	}
 	draw() {
 		ctx.beginPath();
