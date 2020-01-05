@@ -20,23 +20,24 @@ export default class Obstacle {
 		}
 	}
     generateSpawnPosition() {
+        let t = 200;
         let number = getRandomInt(0, playground.size.width*2+playground.size.height*2);
         let pos = new Position(0, 0);
         if (number > playground.size.width) {
             pos.y = number - playground.size.width;
-            pos.x = playground.size.width;
+            pos.x = playground.size.width + t/2;
         
             if (number > playground.size.width + playground.size.height) {
-                pos.y = playground.size.height;
+                pos.y = playground.size.height + t/2;
                 pos.x = number - (playground.size.width + playground.size.height);
         
                 if (number > playground.size.width*2 + playground.size.height) {
                     pos.y = number - (playground.size.width*2 + playground.size.height);
-                    pos.x = 0;
+                    pos.x = 0 - t;
                 }
             }
         } else {
-            pos.y = 0;
+            pos.y = 0 - t;
             pos.x = number;
         }
         return pos;

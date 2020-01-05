@@ -42,10 +42,10 @@ class ObstacleSpawnLoop {
 		this.timer = 0;
         this.number = 60;
         
-        this.proMode = false;
+        this.proMode = true;
 
 		this.value = 0;
-		if (this.proMode === true) {
+		if (this.proMode) {
 			this.number = 7;
 		}
 	}

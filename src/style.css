@@ -6,7 +6,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #eee;
-	user-select: none;
+    user-select: none;
+    cursor: url('./cursor.png') 16 16, auto;
 }
 
 #renderCanvas {
