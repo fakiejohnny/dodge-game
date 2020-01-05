@@ -4,25 +4,26 @@ import { collisionRectCircle } from './collosions';
 export default class ObstaclePlayground {
 	constructor(lobby) {
 		this.obstacles = [];
-
-        this.lobby = lobby;
+		this.lobby = lobby;
+		
 		this.timer = 0;
         this.number = 60;
-        
         this.proMode = true;
-
 		this.value = 0;
 		if (this.proMode) {
 			this.number = 7;
 		}
 	}
 	loop() {
+
 		this.obstacles.forEach(element => {
             element.move();
 			element.draw();
 			this.playerCollisionTest(element);
 		});
+
 		this.checkObstacleLife();
+		
 		this.timer += 1;
 		if (this.timer >= 60) {
 			this.timer = 0;
@@ -46,9 +47,6 @@ export default class ObstaclePlayground {
         if (test) {
             element.canDie = true;
         }
-    }
-	spawnObstacle() {
-        this.obstacles.push(new Obstacle());
 	}
 	checkObstacleLife() {
         for (let i = 0; i < this.obstacles.length; i++) {
@@ -58,4 +56,7 @@ export default class ObstaclePlayground {
             }
 		}
     }
+	spawnObstacle() {
+        this.obstacles.push(new Obstacle());
+	}
 }
