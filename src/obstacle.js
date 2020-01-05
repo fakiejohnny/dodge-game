@@ -1,6 +1,6 @@
 import { Position, Size, getRandomArbitrary, getRandomInt, calculateAngel } from "./utils";
 import playground from './playground';
-import {canvas, ctx} from './base';
+import { canvas, ctx } from './base';
 
 export default class Obstacle {
     constructor() {
